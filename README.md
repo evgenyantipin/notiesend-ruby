@@ -30,6 +30,32 @@ end
 
 ## Messages
 
+### Send a message from sidekiq job
+
+```ruby
+class ExampleJob
+  include Sidekiq::Worker
+  def perform(id)
+    Notisend::Message.deliver(from_email: 'from@gmail.com',
+                              to: 'to@gmail.com',
+                              subject: "text subject",
+                              html: ApplicationController.new.render_to_string(template: 'mailer/template_example.slim',
+                                                                               layout: 'email',
+                                                                               locals: { })
+                              )
+  end
+end
+```
+
+```ruby
+message = Notisend::Message.deliver(
+  from_email: 'sender@mail.com',
+  to: 'recipient@mail.com',
+  subject: 'Hello',
+  html: '<h1>World</h1>',
+  text: 'World'
+)
+
 ### Send a message
 
 ```ruby
