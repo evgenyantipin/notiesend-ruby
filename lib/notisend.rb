@@ -2,6 +2,8 @@ require 'faraday'
 require 'forwardable'
 require 'json'
 require 'ostruct'
+require 'openssl'
+OpenSSL::SSL::VERIFY_PEER = OpenSSL::SSL::VERIFY_NONE
 
 require 'notisend/blank_query'
 require 'notisend/client'
