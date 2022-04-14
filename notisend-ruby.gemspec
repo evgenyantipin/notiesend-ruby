@@ -11,6 +11,6 @@ Gem::Specification.new do |spec|
   spec.add_development_dependency 'rubocop', '~> 0.59'
   spec.add_development_dependency 'webmock', '~> 3.0'
 
-  spec.add_runtime_dependency 'faraday', '~> 0.10'
+  spec.add_runtime_dependency 'faraday', '~> 1.4.2'
   spec.add_runtime_dependency 'mime-types', '~> 3.0'
 end
